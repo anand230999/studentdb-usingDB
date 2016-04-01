@@ -61,7 +61,7 @@ def add(request):
         else:
             print student_form.errors
     else:
-        form = StudentForm()
+        student_form = StudentForm()
     return render(request,'studentdb/add.html',{'student_form' : student_form, 'registred':registred})
 
 @login_required
@@ -75,14 +75,14 @@ def delete(request):
 
 """def modify(request):
     #if request.GET:
-    if request == 'POST':
+    modi = Student.objects.get(pk='1')
+    if request.method == 'POST':
        # mod = request.GET.get('M')
-        modi = Student.objects.get(pk=1)
         form = StudentForm(request.POST,instance=modi)
         if form.is_valid():
             modi = form.save(commit=False)
-            modi.studid = request.studid
-            modi.name = request.name
+            form.studid = request.POST.get('studid')
+            modi.name = request.POST.get('name')
             modi.age = request.age
             modi.sex = request.sex
             modi.marks = request.marks

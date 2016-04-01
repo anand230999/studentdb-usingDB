@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Search</title>
-    </title>
-    
-    <body>
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}{{ category_name }}{% endblock %}
+
+{% block body_block %}   
+     <div>
         <h1>Search For a Student</h1>
+    </div>
+    <div>
         <form>
             <input name='S'>
         </form>
@@ -21,7 +24,7 @@
             </tr>
             {% for student in results %}
                 <tr>
-                <td>{{ student.id }}</td>
+                <td>{{ student.studid }}</td>
                 <td>{{ student.name }}</td>
                 <td>{{ student.age }}</td>
                 <td>{{ student.sex }}</td>
@@ -31,6 +34,6 @@
         {% else %}
            <strong>No names found</strong>
         {% endif %}
-    </body>
-</html>
+    </div>
+{% endblock %}
 

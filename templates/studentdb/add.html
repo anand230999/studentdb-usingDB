@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Add Student</title>
-    </head>
-    
-    <body>
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block body_block %}
+    <div>        
         <h1>Add Student</h1>
+    </div>
+    <div>
         {% if registred %}
         <strong>Thank you for registering</strong>
         <a href="/studentdb/">Return to Home Page</a>
@@ -18,5 +17,4 @@
             <input type="submit" name="submit" value="Register" />
         </form>
         {% endif %}
-    </body>
-</html>
+{% endblock %}

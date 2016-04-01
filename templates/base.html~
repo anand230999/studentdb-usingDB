@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UFT-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title> Studentdb {% block title %}{% endblock %} </title>
+        <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+           <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/studentdb/">StudentDB</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                         <li><a href="{% url 'index' %}">Home</a></li>
+                         {% if user.is_authenticated %}
+                         <li><a href="/studentdb/add">Add Students</a></li>
+                         <li><a href="/studentdb/delete">Delete Students</a></li>
+                         <li><a href="/studentdb/logout">Logout</a></li>
+                         {% else %}
+                         <li><a href="/studentdb/login">Login</a></li>
+                         <li><a href="/studentdb/register/">Register Here</a></li>
+                         {% endif %}
+                    <li><a href="/studentdb/view">View Students</a></li>
+                    <li><a href="/studentdb/search">Search Students</a></li>
+                    </ul>
+                    <ul class="nav nav-list">
+                        <form>
+                    </ul>
+                    <div id="cats">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
+                    {% block side_block %}
+                    {% endblock %}
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                    <div>
+                        {% block body_block %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+        <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+    </body>
+</html>
+

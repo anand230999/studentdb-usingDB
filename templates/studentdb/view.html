@@ -1,11 +1,10 @@
-<DOCTYPE html>
-<html>
-    <head>
-        <title>View Students</title>
-    </head>
-
-    <body>
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block body_block %}
+    <div>
         <h1>Students and Details</h1>
+    </div>
+    <div>
         {% if students %}
             <table border="1" style="width:100%">
             <tr>
@@ -17,7 +16,7 @@
             </tr>
             {% for student in students %}
                 <tr>
-                <td>{{ student.id }}</td>
+                <td>{{ student.studid }}</td>
                 <td>{{ student.name }}</td>
                 <td>{{ student.age }}</td>
                 <td>{{ student.sex }}</td>
@@ -27,6 +26,5 @@
         {% else %}
             <strong>There are no students present.</strong>
         {% endif %}
-        
-    </body>
-</html>
+    </div>
+{% endblock %}
