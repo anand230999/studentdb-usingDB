@@ -1,0 +1,32 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <title>View Students</title>
+    </head>
+
+    <body>
+        <h1>Students and Details</h1>
+        {% if students %}
+            <table border="1" style="width:100%">
+            <tr>
+            <td><strong>Student ID</strong></td>
+            <td><strong>Name</strong></td>
+            <td><strong>Age</strong></td>
+            <td><strong>Sex</strong></td>
+            <td><strong>Marks</strong></td>
+            </tr>
+            {% for student in students %}
+                <tr>
+                <td>{{ student.id }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.age }}</td>
+                <td>{{ student.sex }}</td>
+                <td>{{ student.marks }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <strong>There are no students present.</strong>
+        {% endif %}
+        
+    </body>
+</html>

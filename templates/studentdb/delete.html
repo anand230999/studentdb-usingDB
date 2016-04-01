@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Delete</title>
+    </head>
+    <body>
+        <h1>Enter Student ID to delete</h1>
+        <form>
+            <input name='D'>
+        </form>
+        {% if result %}
+        <strong>Deleted {{ result.id }}		{{ result.name }}</strong>
+        {% else %}
+        <strong>ID Not Found</strong>
+        {% endif %}
+    </body>
+</html>

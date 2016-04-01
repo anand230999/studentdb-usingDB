@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Search</title>
+    </title>
+    
+    <body>
+        <h1>Search For a Student</h1>
+        <form>
+            <input name='S'>
+        </form>
+        {% if results %}
+        Found the following items:
+        <table border="1" style="width:100%">
+            <tr>
+            <td><strong>Student ID</strong></td>
+            <td><strong>Name</strong></td>
+            <td><strong>Age</strong></td>
+            <td><strong>Sex</strong></td>
+            <td><strong>Marks</strong></td>
+            </tr>
+            {% for student in results %}
+                <tr>
+                <td>{{ student.id }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.age }}</td>
+                <td>{{ student.sex }}</td>
+                <td>{{ student.marks }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+           <strong>No names found</strong>
+        {% endif %}
+    </body>
+</html>
+

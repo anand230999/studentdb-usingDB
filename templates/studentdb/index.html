@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>StudentDB</title>
+    </head>
+
+    <body>
+        <h1>Student Management System</h1>
+        {% if user.is_authenticated %}
+            <a href="/studentdb/add">Add Students</a><br />
+            <a href="/studentdb/delete">Delete Students</a><br />
+            <a href="/studentdb/logout">Logout</a><br />
+        {% else %}
+            <a href="/studentdb/login">Login</a><br />
+            <a href="/studentdb/register/">Register Here</a><br />
+        {% endif %}
+            <a href="/studentdb/view">View Students</a><br />
+            <a href="/studentdb/search">Search Students</a><br />
+    </body>
+</html>

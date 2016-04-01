@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Student</title>
+    </head>
+    
+    <body>
+        <h1>Add Student</h1>
+        {% if registred %}
+        <strong>Thank you for registering</strong>
+        <a href="/studentdb/">Return to Home Page</a>
+        {% else %}
+        <strong>Register steudent here</strong>
+        
+        <form id="student_form" method="post" action="/studentdb/add/" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ student_form }}
+            <input type="submit" name="submit" value="Register" />
+        </form>
+        {% endif %}
+    </body>
+</html>
